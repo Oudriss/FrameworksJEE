@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title></title>
+</h:head>
+
+<h:body>
+	
+	<div>
+		<h:dataTable value="#{adminMB.utilisateurModel.utilisateurs}" var="u" class="table1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="CIN"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{u.cin}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="nom"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{u.nom}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Prenom"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{u.prenom}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Adresse"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{u.adresse}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Ville"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{u.ville}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Telephone"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{u.telephone}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Username"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{u.username}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Password"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{u.password}"></h:outputText>
+			</h:column>
+			
+		</h:dataTable>
+	</div>
+	
+		<div>
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputText value="CIN :"></h:outputText>
+				<h:inputText value="#{adminBM.utilisateurModel.newUtilisateur.cin}"></h:inputText>
+				<h:outputText value="NOM :"></h:outputText>
+				<h:inputText value="#{adminBM.utilisateurModel.newUtilisateur.nom}"></h:inputText>
+				<h:outputText value="Prenom :"></h:outputText>
+				<h:inputText value="#{adminBM.utilisateurModel.newUtilisateur.prenom}"></h:inputText>
+				<h:outputText value="Ville :"></h:outputText>
+				<h:inputText value="#{adminBM.utilisateurModel.newUtilisateur.ville}"></h:inputText>
+				<h:outputText value="Adresse :"></h:outputText>
+				<h:inputText value="#{adminBM.utilisateurModel.newUtilisateur.adresse}"></h:inputText>
+				<h:outputText value="Telephone :"></h:outputText>
+				<h:inputText value="#{adminBM.utilisateurModel.newUtilisateur.telephone}"></h:inputText>
+				<h:outputText value="Username :"></h:outputText>
+				<h:inputText value="#{adminBM.utilisateurModel.newUtilisateur.username}"></h:inputText>
+				<h:outputText value="Password :"></h:outputText>
+				<h:inputText value="#{adminBM.utilisateurModel.newUtilisateur.password}"></h:inputText>
+				
+				<h:commandButton action="#{adminBM.addUtilisateur}" value="Ajouter"></h:commandButton>
+			</h:panelGrid>
+		</h:form>
+	</div>
+	
+</h:body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title></title>
+</h:head>
+
+<h:body>
+	
+	<div>
+		<h:dataTable value="#{agentMB.operationModel.operations}" var="op" class="table1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="date operation"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{op.dateOperation}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="montant"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{op.montant}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="type"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{op.type}"></h:outputText>
+			</h:column>
+		</h:dataTable>
+	</div>
+	
+	<div>
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputText value="Compte recepteur : "></h:outputText>
+				<h:inputText value="#{agentMB.operationModel.recepteur.codecompte}"></h:inputText>
+				<h:outputText value="Compte emetteur : "></h:outputText>
+				<h:inputText value="#{agentMB.operationModel.recepteur.codecompte}"></h:inputText>
+				<h:outputText value="Monatnt : "></h:outputText>
+				<h:inputText value="#{agentMB.operationModel.montant}"></h:inputText>
+				<h:commandButton action="#{banqueMB.vierement}" value="Valider"></h:commandButton>
+			</h:panelGrid>
+		</h:form>
+	</div>
+	
+</h:body>
+</html>

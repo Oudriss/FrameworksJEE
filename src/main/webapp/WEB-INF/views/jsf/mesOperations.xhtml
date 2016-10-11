@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title></title>
+</h:head>
+
+<h:body>
+	
+	<div>
+		<h:dataTable value="#{clientMB.operationModel.operations}" var="op" class="table1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="date operation"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{op.dateOperation}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="montant"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{op.montant}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="type"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{op.type}"></h:outputText>
+			</h:column>
+		</h:dataTable>
+	</div>
+	
+
+	
+</h:body>
+</html>

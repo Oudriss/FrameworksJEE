@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title></title>
+</h:head>
+
+<h:body>
+	
+	<div>
+		<h:dataTable value="#{adminMB.agenceModel.agencess}" var="ag" class="table1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="ville"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{ag.ville}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="adresse"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{ag.adresse}"></h:outputText>
+			</h:column>
+		</h:dataTable>
+	</div>
+	
+	<div>
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputText value="Ville : "></h:outputText>
+				<h:inputText value="#{banqueMB.agenceModel.newAgence.ville}"></h:inputText>
+				<h:outputText value="Adresse : "></h:outputText>
+				<h:inputText value="#{banqueMB.agenceModel.newAgence.addresse}"></h:inputText>
+				<h:commandButton action="#{banqueMB.addAgence}" value="Ajouter"></h:commandButton>
+			</h:panelGrid>
+		</h:form>
+	</div>
+	
+</h:body>
+</html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+    	<default-action-ref name="index"></default-action-ref>
+    	<action name="index">
+    		<result name="success">WEB-INF/views/struts/index.jsp</result>
+    	</action>
+    	<action name="agences" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="agences">
+    		<result name="success">WEB-INF/views/struts/agences.jsp</result>
+    	</action>
+    	<action name="agences/new" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="addAgence">
+    		<result name="success">WEB-INF/views/struts/agences.jsp</result>
+    	</action>
+    	<action name="agences/remove" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="removeAgence">
+    		<result name="success">WEB-INF/views/struts/agences.jsp</result>
+    	</action>
+    	<action name="agences/modify" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="modifyAgence">
+    		<result name="success">WEB-INF/views/struts/agences.jsp</result>
+    	</action>
+    	<action name="agences/postModify" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="postModifyAgence">
+    		<result name="success">WEB-INF/views/struts/agences.jsp</result>
+    	</action>
+    	
+    	
+    	<action name="comptes" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="comptes">
+    		<result name="success">WEB-INF/views/struts/comptes.jsp</result>
+    	</action>
+    	<action name="comptes/new" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="addCompte">
+    		<result name="success">WEB-INF/views/struts/comptes.jsp</result>
+    	</action>
+    	<action name="comptes/remove" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="removeCompte">
+    		<result name="success">WEB-INF/views/struts/comptes.jsp</result>
+    	</action>
+    	<action name="comptes/modify" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="modifyCompte">
+    		<result name="success">WEB-INF/views/struts/comptes.jsp</result>
+    	</action>
+    	<action name="comptes/postModify" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="postModifyCompte">
+    		<result name="success">WEB-INF/views/struts/comptes.jsp</result>
+    	</action>
+    	
+    	
+    	<action name="utilisateurs" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="utilisateurs">
+    		<result name="success">WEB-INF/views/struts/utilisateurs.jsp</result>
+    	</action>
+    	<action name="utilisateurs/new" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="addutilisateur">
+    		<result name="success">WEB-INF/views/struts/utilisateurs.jsp</result>
+    	</action>
+    	<action name="utilisateurs/remove" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="removeutilisateur">
+    		<result name="success">WEB-INF/views/struts/utilisateurs.jsp</result>
+    	</action>
+    	<action name="utilisateurs/modify" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="modifyutilisateur">
+    		<result name="success">WEB-INF/views/struts/utilisateurs.jsp</result>
+    	</action>
+    	<action name="utilisateurs/postModify" class="uh1.ac.ma.presentation.struts.controllers.AdminActions" method="postModifyutilisateur">
+    		<result name="success">WEB-INF/views/struts/utilisateurs.jsp</result>
+    	</action>
+    	
+    	
+    	
+    	<action name="operations" class="uh1.ac.ma.presentation.struts.controllers.AgentActions" method="operations">
+    		<result name="success">WEB-INF/views/struts/operations.jsp</result>
+    	</action>
+    	<action name="operations/virement" class="uh1.ac.ma.presentation.struts.controllers.AgentActions" method="virement">
+    		<result name="success">WEB-INF/views/struts/operations.jsp</result>
+    	</action>
+    	<action name="operations/verser" class="uh1.ac.ma.presentation.struts.controllers.AgentActions" method="verser">
+    		<result name="success">WEB-INF/views/struts/operations.jsp</result>
+    	</action>
+    	<action name="operations/retirer" class="uh1.ac.ma.presentation.struts.controllers.AgentActions" method="retirer">
+    		<result name="success">WEB-INF/views/struts/operations.jsp</result>
+    	</action>
+    	
+    	<action name="client/mesComptes" class="uh1.ac.ma.presentation.struts.controllers.ClientActions" method="mesComptes">
+    		<result name="success">WEB-INF/views/struts/mesComptes.jsp</result>
+    	</action>
+    	<action name="operations/mesOperations" class="uh1.ac.ma.presentation.struts.controllers.ClientActions" method="mesOperations">
+    		<result name="success">WEB-INF/views/struts/mesOperations.jsp</result>
+    	</action>
+    	
+    	<action name="authentification" class="uh1.ac.ma.presentation.struts.controllers.AuthentificationActions" method="connecter">
+    		<result name="success">WEB-INF/views/struts/index.jsp</result>
+    		<result name="error">WEB-INF/views/struts/authentification.jsp</result>
+    	</action>
+    	
+    </package>
+    <!-- Add addition packages and configuration here. -->
+</struts>

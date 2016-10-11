@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title></title>
+</h:head>
+
+<h:body>
+	
+	<div>
+		<h:dataTable value="#{adminMB.compteModel.comptes}" var="cp" class="table1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="CODE"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{cp.codeCompte}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="SOLDE"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{cp.solde}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="DATE CREATION"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{cp.dateCreation}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Clients"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{cp.clients}"></h:outputText>
+			</h:column>
+		</h:dataTable>
+	</div>
+	
+		<div>
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputText value="Solde:"></h:outputText>
+				<h:inputText value="#{banqueMB.compteModel.newCompte.solde}"></h:inputText>
+				<h:outputText value="client:"></h:outputText>
+				<h:inputText value="#{banqueMB.compteModel.newCompte.clients}"></h:inputText>
+				<h:outputText value="typeCompte :"></h:outputText>
+				<h:inputText value="#{banqueMB.compteModel.type}"></h:inputText>
+				<h:commandButton action="#{banqueMB.addCompte}" value="Ajouter"></h:commandButton>
+			</h:panelGrid>
+		</h:form>
+	</div>
+	
+</h:body>
+</html>

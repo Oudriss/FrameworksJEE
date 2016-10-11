@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+		
+	
+
+
+
+	<bean id="HBcompteDAO" class="uh1.ac.ma.dao.hibernate.CompteDAO"></bean>
+	<bean id="HButilisateurDAO" class="uh1.ac.ma.dao.hibernate.UtilisateurDAO"></bean>
+	<bean id="HBoperationDAO" class="uh1.ac.ma.dao.hibernate.OperationDAO"></bean>
+	<bean id="HBagenceDAO" class="uh1.ac.ma.dao.hibernate.AgenceDAO"></bean>
+	
+	<bean id="JPAcompteDAO" class="uh1.ac.ma.dao.jpa.CompteDAO"></bean>
+	<bean id="JPAutilisateurDAO" class="uh1.ac.ma.dao.jpa.UtilisateurDAO"></bean>
+	<bean id="JPAoperationDAO" class="uh1.ac.ma.dao.jpa.OperationDAO"></bean>
+	<bean id="JPAagenceDAO" class="uh1.ac.ma.dao.jpa.AgenceDAO"></bean>
+	
+	<bean id="SessionBean" class="utils.SessionBean"></bean>
+	
+	
+    <bean id="authentificationServices" class="uh1.ac.ma.metier.services.AuthentificationServicesImpl">
+    		<property name="dao" ref="HButilisateurDAO"></property>
+    </bean>
+    
+    <bean id="clientServices" class="uh1.ac.ma.metier.services.ClientServicesImpl">
+    	<property name="operationDAO" ref="HBoperationDAO"></property>
+		<property name="compteDAO" ref="HBcompteDAO"></property>
+    </bean>
+ 	
+	<bean id="adminServices" class="uh1.ac.ma.metier.services.AdminServicesImpl">
+		<property name="utilisateurDAO" ref="HButilisateurDAO"></property>
+	    <property name="agenceDAO" ref="HBagenceDAO"></property>
+	    <property name="compteDAO" ref="HBcompteDAO"></property>
+	</bean>
+	
+	<bean id="agentServices" class="uh1.ac.ma.metier.services.AgentServicesImpl">
+		<property name="operationDAO" ref="HBoperationDAO"></property>
+		<property name="compteDAO" ref="HBcompteDAO"></property>
+	</bean>
+	
+    <bean id="adminController" class="uh1.ac.ma.presentation.springmvc.controllers.AdminController">
+		<property name="adminMetier" ref="adminServices"></property>
+	</bean>
+	
+	<bean id="agentController" class="uh1.ac.ma.presentation.springmvc.controllers.AgentController">
+		<property name="agentMetier" ref="agentServices"></property>
+	</bean>
+	
+	<bean id="publicController" class="uh1.ac.ma.presentation.springmvc.controllers.PublicController">
+		<property name="authentificationMetier" ref="authentificationServices"></property>
+		<property name="sessionBean" ref="SessionBean"></property>
+	</bean>
+        
+    <bean id="clientController" class="uh1.ac.ma.presentation.springmvc.controllers.ClientController">
+		<property name="sessionBean" ref="SessionBean"></property>
+	</bean>
+	
+		
+
+
+	
+	 
+	   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	      <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	      <property name="url" value="jdbc:mysql://localhost:3306/banquebd" />
+	      <property name="username" value="root" />
+	      <property name="password" value="" />
+	   </bean>
+	   
+	   
+	   <bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+			<property name="persistenceXmlLocations">
+				<list>
+					<value>classpath*:META-INF/persistence.xml</value>
+				</list>
+			</property>
+			<property name="defaultDataSource" ref="dataSource"></property>
+		</bean>
+		
+	   
+	   <bean id="myEmf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		  <property name="persistenceUnitManager" ref="persistenceUnitManager"></property>
+	      <property name="persistenceUnitName" value="MyPersistenceUnit" />   
+		 </bean>
+	 
+	   <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+	      <property name="entityManagerFactory" ref="myEmf" />
+	   </bean>
+	   <tx:annotation-driven transaction-manager="transactionManager"/>
+	   <context:annotation-config></context:annotation-config>
+	 
+	
+	
+
+	
+</beans>
+
+
+
+
+
